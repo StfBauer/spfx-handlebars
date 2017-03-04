@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/handlebarsDemo/HandlebarsDemoWebPart.js",
+      "manifest": "./src/webparts/handlebarsDemo/HandlebarsDemoWebPart.manifest.json",
+      "outputPath": "./dist/handlebars-demo.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "handlebarsDemoStrings": "webparts/handlebarsDemo/loc/{locale}.js"
+  }
+}
