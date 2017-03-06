@@ -9,12 +9,10 @@ const loaderConfig = [{
   loader: "handlebars-template-loader"
 }];
 
-
+// push loader configuration to SPFx configuration
 build.configureWebpack.mergeConfig({
   additionalConfiguration: (generatedConfiguration) => {
-    generatedConfiguration.module.loaders.push([
-      { test: /\.hbs/, loader: "handlebars-template-loader" }
-    ]);
+    generatedConfiguration.module.loaders.push(loaderConfig);
 
     return generatedConfiguration;
 
