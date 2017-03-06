@@ -1,4 +1,4 @@
-## SPFx Sample with handlebars
+## SPFx Sample with Handlebars.js
 
 This sample demonstrate how to set up SPFX to use [Handlebars](http://handlebarsjs.com) through [webpack loader](https://webpack.github.io/docs/loaders.html).
 
