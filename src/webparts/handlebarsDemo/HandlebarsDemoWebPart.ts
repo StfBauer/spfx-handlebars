@@ -10,24 +10,25 @@ import styles from './HandlebarsDemo.module.scss';
 import * as strings from 'handlebarsDemoStrings';
 import { IHandlebarsDemoWebPartProps } from './IHandlebarsDemoWebPartProps';
 
+// Importing handlebars
+import * as Handlebars from 'handlebars';
+
+// load and precompile template
+var HelloWorldTemplate = <HandlebarsTemplateDelegate>require('../../templates/HelloWorld.hbs');
+
 export default class HandlebarsDemoWebPart extends BaseClientSideWebPart<IHandlebarsDemoWebPartProps> {
 
   public render(): void {
-    this.domElement.innerHTML = `
-      <div class="${styles.helloWorld}">
-        <div class="${styles.container}">
-          <div class="ms-Grid-row ms-bgColor-themeDark ms-fontColor-white ${styles.row}">
-            <div class="ms-Grid-col ms-u-lg10 ms-u-xl8 ms-u-xlPush2 ms-u-lgPush1">
-              <span class="ms-font-xl ms-fontColor-white">Welcome to SharePoint!</span>
-              <p class="ms-font-l ms-fontColor-white">Customize SharePoint experiences using Web Parts.</p>
-              <p class="ms-font-l ms-fontColor-white">${escape(this.properties.description)}</p>
-              <a href="https://aka.ms/spfx" class="${styles.button}">
-                <span class="${styles.label}">Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>`;
+
+    // bind data to template
+    var data = {
+      styles: styles,
+      description: this.properties.description
+    }
+
+    // compile and add template
+    this.domElement.innerHTML = HelloWorldTemplate(data);
+
   }
 
   protected get dataVersion(): Version {
